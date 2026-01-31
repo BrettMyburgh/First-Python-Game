@@ -12,7 +12,7 @@ class item:
 
 
     def __init__(self, screen):
-        self.pos = pygame.Vector2(random.randint(0,screen.width), random.randint(0,screen.height))
+        self.pos = pygame.Vector2(random.randint(0,screen.width - 50), random.randint(0,screen.height - 50))
 
     def add_item(self, screen):
         self.apple = pygame.transform.scale(self.apple, (30,30))
@@ -21,8 +21,11 @@ class item:
         screen.blit(self.apple, self.applerect)
         return screen
     
-    def check_colide(self, player_rec, screen):
-        if self.applerect.colliderect(player_rec):
-            self.pos = pygame.Vector2(random.randint(0,screen.width), random.randint(0,screen.height))
+    def check_colide(self, player_rec, enemy_rec, screen):
+        if self.applerect.colliderect(player_rec) or self.applerect.colliderect(enemy_rec):
+            self.pos = pygame.Vector2(random.randint(0,screen.width - 50), random.randint(0,screen.height - 50))
             return screen
+        
+    def get_apple_pos(self):
+        return self.pos
         

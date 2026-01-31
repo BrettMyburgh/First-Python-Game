@@ -3,9 +3,7 @@ import pygame
 class player:
 
     player_pos = pygame.Vector2(0,0)
-    screen = pygame.display
     stage_rect = pygame.Rect(player_pos.x, player_pos.y,30,30)
-
 
     def __init__ (self, startpos, screen):
         self.player_pos= startpos
