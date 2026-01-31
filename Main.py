@@ -33,6 +33,10 @@ while running:
     if keys[pygame.K_d]:
         player.player_pos.x += 300 * delta
 
+    player_rec = player.get_player_rect()
+
+    item.check_colide(player_rec, screen)
+
     pygame.display.flip()
 
     delta = clock.tick(60) / 1000
